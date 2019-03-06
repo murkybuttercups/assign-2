@@ -1,0 +1,221 @@
+{
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5123,
+            "count" : 224988,
+            "max" : [
+                61306
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 61307,
+            "max" : [
+                2.5735509395599365,
+                2.8992490768432617,
+                1.9251012802124023
+            ],
+            "min" : [
+                -2.83241605758667,
+                -2.106411933898926,
+                -2.1071677207946777
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 61307,
+            "max" : [
+                0.9998779296875,
+                0.999969482421875,
+                0.999969482421875
+            ],
+            "min" : [
+                -0.99993896484375,
+                -0.99993896484375,
+                -0.999908447265625
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 61307,
+            "max" : [
+                1.0,
+                0.9999834299087524,
+                0.9999759793281555,
+                1.0
+            ],
+            "min" : [
+                -0.9999732375144958,
+                -0.999991238117218,
+                -0.999994158744812,
+                -1.0
+            ],
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 61307,
+            "max" : [
+                0.9997680187225342,
+                1.000065000000177
+            ],
+            "min" : [
+                -3.600000127335079e-05,
+                -8.797645568847656e-05
+            ],
+            "type" : "VEC2"
+        }
+    ],
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter",
+        "version" : "2.0"
+    },
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 449976,
+            "byteOffset" : 0,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 735684,
+            "byteOffset" : 449976,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 735684,
+            "byteOffset" : 1185660,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 980912,
+            "byteOffset" : 1921344,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 490456,
+            "byteOffset" : 2902256,
+            "target" : 34962
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 3392712,
+            "uri" : "pouch.bin"
+        }
+    ],
+    "images" : [
+        {
+            "name" : "pouch",
+            "uri" : "pouch.jpg"
+        }
+    ],
+    "materials" : [
+        {
+            "name" : "material_0",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0.0
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "pouch",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 2,
+                        "POSITION" : 1,
+                        "TANGENT" : 3,
+                        "TEXCOORD_0" : 4
+                    },
+                    "indices" : 0,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "name" : "Camera",
+            "rotation" : [
+                0.483536034822464,
+                0.33687159419059753,
+                -0.20870360732078552,
+                0.7804827094078064
+            ],
+            "translation" : [
+                7.481131553649902,
+                5.34366512298584,
+                6.5076398849487305
+            ]
+        },
+        {
+            "name" : "Lamp",
+            "rotation" : [
+                0.16907575726509094,
+                0.7558802962303162,
+                -0.27217137813568115,
+                0.570947527885437
+            ],
+            "scale" : [
+                1.0,
+                1.0,
+                0.9999999403953552
+            ],
+            "translation" : [
+                4.076245307922363,
+                5.903861999511719,
+                -1.0054539442062378
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "pouch",
+            "rotation" : [
+                -0.564254105091095,
+                0.5961781740188599,
+                0.03861475735902786,
+                0.5698226094245911
+            ]
+        }
+    ],
+    "samplers" : [
+        {}
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                2,
+                1,
+                0
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ]
+}
