@@ -1,0 +1,29 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+.aframe-scene, a-scene {
+	width: 100vw;
+	height: 90vh;
+}
+
+.info-card {
+	position: absolute;
+	z-index: 50;
+	width: 30%;
+	left: 10vw;
+	top: 10vw;
+	background: rgba(255, 255, 255, 0.8);
+	padding: 30px;
+}
+
+.project-info {
+	margin-left: 10vw;
+	padding: 40px 0;
+}
