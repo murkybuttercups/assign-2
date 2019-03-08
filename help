@@ -1,0 +1,6 @@
+To pull down a branch from a remote repo:
+
+in git ->
+	1. git fetch origin
+	2. git checkout -b branch-name-here origin/branch-name-here or git branch branch-name-here origin/branch-name-here
+	3. If the latter option is selected then, git checkout branch-name-here
