@@ -4,24 +4,53 @@
         <title>A-Frame</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
   	</head>
 	<body>
 
+		<div class="background"><img src="imgs/background.png"></div>
+
 		<!-- OBJECT INFO -->
 
-		<div class="info-card">
-			<h1 class="info-card__title">The Pouch lets see if this works</h1>
-			<p class="info-card__meta">From the Blackfoot people</p>
-			<p class="info-card__date">sometime in the past</p>
-			<p class="info-card__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		<div id="info-card">
+			<h1 class="info-card__title">The Pouch</h1>
+		</div>	
+		<br>
+		<div id="info-card">
+			<h3 class="info-card__date">From the Blackfoot people 'date'</h3>
+		</div>
+		<br>	
+		<div id="info-card">
+			<p class="info-card__info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
 		</div>
+
+		<!-- Buttons
+			(fogot what kind of buttons we need so here are some for now) -->
+		<button class="btn" onclick="alert('INFO')"><i class="fa fa-info"></i></button>
+		<button class="btn"><i class="fa fa-close"></i></button>
+		<button class="btn"><i class="fa fa-home"></i></button>
+		<button class="btn"><i class="fa fa-trash"></i></button>
+
+
+
+<!-- For Pop up windows? -->
+<!-- 		<section id="active">
+			<div id="pop-up">
+			<p class="pop-up__info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		</section> -->
+
 
 		<!-- A-Frame Scene -->
 
@@ -31,7 +60,7 @@
 		        
 		        <a-assets>
 		            <a-asset-item id="pouch" src="model/GLTF/pouch.gltf"></a-asset-item>
-		            <img id="sky" src="imgs/forest-360.jpg">
+		            <img id="sky" src="imgs/background.png">
 		        </a-assets>
 
 		        <a-light 

@@ -4,8 +4,14 @@
 
 html, body {
 	height: 100%;
+	width: 100%;
 	margin: 0;
 	font-family: sans-serif;
+}
+
+.background {
+	width: 100vw;
+	height: 90vh;
 }
 
 .aframe-scene, a-scene {
@@ -13,15 +19,20 @@ html, body {
 	height: 90vh;
 }
 
-.info-card {
-	position: absolute;
-	z-index: 50;
+/*#info-card {
 	width: 30%;
-	left: 10vw;
-	top: 10vw;
 	background: rgba(255, 255, 255, 0.8);
 	padding: 30px;
+}*/
+
+.info-card__title {
+	position: fixed;
+	z-index: 50;
+	left: 10vw;
+	top: 10vw;
 }
+
+
 
 .project-info {
 	margin-left: 10vw;
