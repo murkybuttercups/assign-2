@@ -31,6 +31,16 @@ function init() {
 		mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
 		mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 	}
+	
+	function onMouseClick(event) {
+		for (var i = 0; i < scene.children.length; i++)
+		{
+			if (scene.children[i].name == "hitbox" && scene.children[i].hovering == true)
+			{
+				scene.children[i].selected = true;
+			} 
+		}	
+	}
 
 	var loader = new THREE.GLTFLoader();
 	// Load a glTF resource
@@ -73,81 +83,56 @@ function init() {
 
 	// Create teh hit boxes for the hot spots on the pouch, can add stipe hitboxes for the back as well if needed
 	function ConstructHitBoxes() {
-		function FrontBox() {
-			var geo = new THREE.BoxGeometry(3.4, 2.8, 0.5);
-			var mat = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-			mat.wireframe = true;
+		function CreateHitBox(w, h, d, x, y, z) {
+			var geo = new THREE.BoxGeometry(w, h, d);
+			var mat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
+			mat.transparent = true;
+			mat.opacity = 0.0;
+			
 			var cube = new THREE.Mesh(geo, mat);
+			cube.name = "hitbox";
+			cube["selected"] = false;
+			cube["hovering"] = true;
 			scene.add(cube);
 			
-			cube.position.x = 0.11;
-			cube.position.y = 0.6;
-			cube.position.z = 1;
+			
+			cube.position.x = x;
+			cube.position.y = y;
+			cube.position.z = z;
 		}
-		function BackBox() {
-			var geo = new THREE.BoxGeometry(3.4, 2.8, 0.5);
-			var mat = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-			mat.wireframe = true;
-			var cube = new THREE.Mesh(geo, mat);
-			scene.add(cube);
-
-			cube.position.x = 0.2;
-			cube.position.y = 0.6;
-			cube.position.z = -0.0;
-		}
-
-		function LeftBox() {
-			var geo = new THREE.BoxGeometry(0.5, 2.8, 2.5);
-			var mat = new THREE.MeshBasicMaterial({ color: 0x00ffff });
-			mat.wireframe = true;
-			var cube = new THREE.Mesh(geo, mat);
-			scene.add(cube);
-
-			cube.position.x = -1.84;
-			cube.position.y = 0.6;
-			cube.position.z = 0;
-		}
-
-		function RightBox() {
-			var geo = new THREE.BoxGeometry(0.5, 2.8, 2.5);
-			var mat = new THREE.MeshBasicMaterial({ color: 0x00ffff });
-			mat.wireframe = true;
-			var cube = new THREE.Mesh(geo, mat);
-			scene.add(cube);
-
-			cube.position.x = 2.05;
-			cube.position.y = 0.6;
-			cube.position.z = 0;
-		}
-
-		function BottomBox() {
-			var geo = new THREE.BoxGeometry(4.2, 0.8, 2.5);
-			var mat = new THREE.MeshBasicMaterial({ color: 0x00ffff });
-			mat.wireframe = true;
-			var cube = new THREE.Mesh(geo, mat);
-			scene.add(cube);
-
-			cube.position.x = 0;
-			cube.position.y = -1.2;
-			cube.position.z = 0;
-		}
-
-		FrontBox();
-		BackBox();
-		LeftBox();
-		RightBox();
-		BottomBox();
+		
+		CreateHitBox(3.4, 2.8, 0.5, 0.11, 0.6, 1); // front
+		CreateHitBox(3.4, 2.6, 0.5, 0.2, 0.6, 0.0); // back
+		CreateHitBox(0.5, 2.8, 2.5, -1.84, 0.6, 0); // left
+		CreateHitBox(0.5, 2.8, 2.5, 2.05, 0.6, 0); // right
+		CreateHitBox(4.2, 0.8, 2.5, 0, -1.2, 0); // bottom
 	}
 
 	function Render() {
 		// console.log(mouse.x);
 		// console.log(mouse.y);
-
+		
+		for (var i = 0; i < scene.children.length; i++)
+		{
+			if (scene.children[i].name == "hitbox" && scene.children[i].selected == false)
+			{
+				scene.children[i].material.opacity = 0;
+				scene.children[i].hovering = false;
+			}	
+		}
+		
 		// Finds the first intersected hitbox in the scene from the mouse normal.
 		raycaster.setFromCamera(mouse, camera);
 		var intersects = raycaster.intersectObjects(scene.children);
 		if (intersects.length > 0)
-			intersects[0].object.material.color.set(0xff0000);
+		{
+			var interObj = intersects[0].object;
+			interObj.material.opacity = 0.3;
+			
+			// This needs to be placed under a click event
+			interObj.hovering = false;
+			// interObj.selected = true;
+		}
 		
 		// TODO add clicking events for areas that the mouse is raycasted to. 
 		// TODO add events for when the area is moused over? if possible
@@ -163,4 +148,5 @@ function init() {
 
 
 	window.addEventListener('mousemove', onMouseMove, false);
+	window.addEventListener('onclick', onMouseClick, false);
 }
