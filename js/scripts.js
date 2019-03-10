@@ -32,13 +32,17 @@ function init() {
 		mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 	}
 	
-	function onMouseClick(event) {
+	function onMouseDown(event) {
 		for (var i = 0; i < scene.children.length; i++)
 		{
-			if (scene.children[i].name == "hitbox" && scene.children[i].hovering == true)
+			if (scene.children[i].name == "hitbox")
 			{
-				scene.children[i].selected = true;
-			} 
+				scene.children[i].selected = false;
+				if (scene.children[i].hovering == true)
+				{
+					scene.children[i].selected = true;
+				}
+			}
 		}	
 	}
 
@@ -83,7 +87,7 @@ function init() {
 
 	// Create teh hit boxes for the hot spots on the pouch, can add stipe hitboxes for the back as well if needed
 	function ConstructHitBoxes() {
-		function CreateHitBox(w, h, d, x, y, z) {
+		function CreateHitBox(w, h, d, x, y, z, rotx = 0.0, roty = 0.0, rotz = 0.0) {
 			var geo = new THREE.BoxGeometry(w, h, d);
 			var mat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
 			mat.transparent = true;
@@ -96,16 +100,21 @@ function init() {
 			scene.add(cube);
 			
 			
+			cube.rotation.x = rotx;
+			cube.rotation.y = roty;
+			cube.rotation.z = rotz;
+			
 			cube.position.x = x;
 			cube.position.y = y;
 			cube.position.z = z;
+			
 		}
 		
-		CreateHitBox(3.4, 2.8, 0.5, 0.11, 0.6, 1); // front
-		CreateHitBox(3.4, 2.6, 0.5, 0.2, 0.6, 0.0); // back
-		CreateHitBox(0.5, 2.8, 2.5, -1.84, 0.6, 0); // left
-		CreateHitBox(0.5, 2.8, 2.5, 2.05, 0.6, 0); // right
-		CreateHitBox(4.2, 0.8, 2.5, 0, -1.2, 0); // bottom
+		CreateHitBox(3.4, 3.1, 0.1, 0.11, 0.6, 1, 0.1, 0, 0.0); // front
+		CreateHitBox(3.4, 2.6, 0.1, 0.2, 0.6, -0.17, 0.2, 0.0, 0.0); // back
+		CreateHitBox(0.5, 3.0, 2.5, -1.84, 0.3, 0); // left
+		CreateHitBox(0.5, 2.5, 2.5, 2.095, 0.80, 0); // right
+		CreateHitBox(4.2, 0.4, 2.5, 0, -1.0, 0, 0.0, 0.0, 0.17); // bottom
 	}
 
 	function Render() {
@@ -116,7 +125,7 @@ function init() {
 		{
 			if (scene.children[i].name == "hitbox" && scene.children[i].selected == false)
 			{
-				scene.children[i].material.opacity = 0;
+				scene.children[i].material.opacity = 0.0;
 				scene.children[i].hovering = false;
 			}	
 		}
@@ -130,7 +139,7 @@ function init() {
 			interObj.material.opacity = 0.3;
 			
 			// This needs to be placed under a click event
-			interObj.hovering = false;
+			interObj.hovering = true;
 			// interObj.selected = true;
 		}
 		
@@ -140,7 +149,8 @@ function init() {
 			
 		// TODO add rotational controls
 			
-		scene.rotation.y += 0.01;
+		scene.rotation.y = -0.5;
+		// scene.rotation.y += 0.01;
 
 		renderer.render(scene, camera);
 		requestAnimationFrame(Render);
@@ -148,5 +158,5 @@ function init() {
 
 
 	window.addEventListener('mousemove', onMouseMove, false);
-	window.addEventListener('onclick', onMouseClick, false);
+	window.addEventListener('mousedown', onMouseDown, false);
 }
