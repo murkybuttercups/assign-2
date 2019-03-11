@@ -6,17 +6,20 @@ function init() {
 	// TODO add word background to model
 
 	// replace info with real id.
-	var infos = document.getElementsByClassName("info")
-	
+	var infos = document.getElementById("modal")
+
 	var canvas = document.getElementById("canvas");
+	var graphicsContainer = canvas.parentElement;
 
 	var scene = new THREE.Scene();
-	scene.position.x += 2; // Move the scene to the right.
-	var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+	scene.position.x = -4; // Move the scene to the left.
+
+	var camera = new THREE.PerspectiveCamera(45, graphicsContainer.clientWidth / graphicsContainer.clientHeight, 0.1, 1000);
 	camera.position.set(0.0, 0.0, 10.0);
 
-	var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
-	renderer.setSize(window.innerWidth, window.innerHeight);
+	var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+	renderer.setSize(graphicsContainer.clientWidth, graphicsContainer.clientHeight);
+	renderer.setClearColor(0xffffff, 0);
 
 	var light = new THREE.HemisphereLight(0xffffff, 0x080820, 5);
 	light.position.set(0, 1, 0);
@@ -26,6 +29,7 @@ function init() {
 	var mouse = new THREE.Vector2();
 	var gltfscene = null;
 	var pouch = null;
+	var selectedArea = null;
 
 	// Set to something the mouse pos should never reach so make sure there are no auto selected raycasts.
 	mouse.x = 1000000;
@@ -72,31 +76,40 @@ function init() {
 	}
 
 	function onMouseDown(event) {
-		for (var i = 0; i < scene.children.length; i++)
-		{
+		for (var i = 0; i < scene.children.length; i++) {
 			var c = scene.children[i];
-			if (c.name == "hitbox")
-			{
+			if (c.name == "hitbox") {
 				c.selected = false;
-				if (c.hovering == true)
-				{
+				if (c.hovering == true) {
 					c.selected = true;
 					c.hovering = false;
-					
-					// This is where the modal window will be expanded upon clicking on a hot area.
-					// for (var i = 0; i < infos.children.length; i++)
-					// {
-					// 	var info = infos.children[i];
-					// 	// hide the info boxes naturally.
-					// 	// insert code here
-					// 	if (info.id = c.area)
-					// 	{
-					// 		// display
-					// 	}
-					// } /
+					selectedArea = c.area;
 				}
 			}
 		}
+
+
+		// Now check what is selected
+		if (selectedArea != null) {
+			infos.classList = "modal-active";
+			// This is where the modal window will be expanded upon clicking on a hot area.
+			for (var i = 0; i < infos.children.length; i++) {
+				if (infos.children[i].id == selectedArea) {
+					infos.children[i].classList = infos.children[i].classList + " modal__info-active";
+				}
+				else {
+					infos.children[i].classList = "modal__info";
+				}
+			}
+		}
+		else {
+			infos.classList = "";
+			for (var i = 0; i < infos.children.length; i++) {
+				infos.children[i].classList = "modal__info";
+			}
+		}
+
+		selectedArea = null;
 	}
 
 	// Create the hit boxes for the hot spots on the pouch, can add stipe hitboxes for the back as well if needed
@@ -137,12 +150,10 @@ function init() {
 		// console.log(mouse.x);
 		// console.log(mouse.y);
 
-		for (var i = 0; i < scene.children.length; i++)
-		{
+		for (var i = 0; i < scene.children.length; i++) {
 			var c = scene.children[i];
 			c.hovering = false;
-			if (c.name == "hitbox" && c.selected == false)
-			{
+			if (c.name == "hitbox" && c.selected == false) {
 				c.material.opacity = 0.0;
 			}
 		}
@@ -150,26 +161,21 @@ function init() {
 		// Finds the first intersected hitbox in the scene from the mouse normal.
 		raycaster.setFromCamera(mouse, camera);
 		var intersects = raycaster.intersectObjects(scene.children);
-		if (intersects.length > 0)
-		{
+		if (intersects.length > 0) {
 			var op = 0.15;
 			var interObj = intersects[0].object;
 			interObj.material.opacity = op;
 			interObj.hovering = true;
 
 
-			for (var i = 0; i < scene.children.length; i++)
-			{
+			for (var i = 0; i < scene.children.length; i++) {
 				var c = scene.children[i];
-				if (c.area == interObj.area)
-				{
+				if (c.area == interObj.area) {
 					c.hovering = true;
 					c.material.opacity = op;
 				}
 			}
 		}
-
-		// TOOD add ID clicks to fill in information of the area on the HTML
 
 		// TODO add rotational controls
 
