@@ -4,7 +4,7 @@
 
 html {
 	height: 100vh;
-	width: 100vw;
+	width: 100%;
 }
 
 body {
@@ -53,8 +53,8 @@ body {
   	text-decoration: none;
   	display: inline-block;
 	cursor: pointer;
-	position: absolute;
-	z-index: 100;
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
 }
 
@@ -63,10 +63,12 @@ body {
 	color: white;
 } 
 
-.btn .btn-move {
+.btn-group {
 	position: absolute;
+	z-index: 100;
 	top: 0;
 	left: 30;
+
 }
 
 .graphics #canvas {
