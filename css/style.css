@@ -43,10 +43,37 @@ body {
 	margin-left: 10px;
 }
 
+.btn {
+	background-color: white;
+	border: none;
+	color: darkblue;
+	padding: 12px 16px;
+	font-size: 16px;
+	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+	cursor: pointer;
+	position: absolute;
+	z-index: 100;
+	border-radius: 50%;
+}
+
+.btn:hover {
+	background-color: darkblue;
+	color: white;
+} 
+
+.btn .btn-move {
+	position: absolute;
+	top: 0;
+	left: 30;
+}
+
 .graphics #canvas {
 	position: absolute;
 	top: 0;
     left: 0;
+    z-index: 1;
 }
 
 
