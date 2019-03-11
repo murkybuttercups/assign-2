@@ -9,92 +9,45 @@
   	</head>
 	<body>
 
-		<div class="background"><img src="imgs/background.png"></div>
+
+		<div class="graphics">	
+			<button class="btn" onclick="alert('INFO')"><i class="fa fa-info"></i></button>
+			<button class="btn"><i class="fa fa-close"></i></button>
+			<button class="btn"><i class="fa fa-home"></i></button>
+			<button class="btn"><i class="fa fa-trash"></i></button>
+
+			<canvas id="canvas"></canvas>
+		</div>
+
 
 		<!-- OBJECT INFO -->
 
 		<div class="info-card">
-			<h1 class="info-card__title">The Pouch</h1>
-		</div>	
+			<h1>The Pouch</h1>
 		<br>
-		<div class="info-card">
-			<h3 class="info-card__date">From the Blackfoot people 'date'</h3>
-		</div>
+			<h3>From the Blackfoot people 'date'</h3>
 		<br>	
-	<!-- 	<div class="info-card">
-			<p class="info-card__info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		</div> -->
-
-		<!-- Buttons
-			(fogot what kind of buttons we need so here are some for now) -->
-		<button class="btn" onclick="alert('INFO')"><i class="fa fa-info"></i></button>
-		<button class="btn"><i class="fa fa-close"></i></button>
-		<button class="btn"><i class="fa fa-home"></i></button>
-		<button class="btn"><i class="fa fa-trash"></i></button>
+		</div>
 
 
 
 <!-- For Pop up windows? -->
-<!-- 		<section id="active">
-			<div id="pop-up">
-			<p class="pop-up__info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		</div>
-		</section> -->
+		<section id="modal">
+			<div id="front" class="modal__info">
+			<p class="front-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p></div>
+			</div>
+			<div id="back" class="modal__info">
+			<p class="back-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p></div>
+			<div id="frills" class="modal__info">
+			<p class="frills-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p></div>
+		</section>
 
-
-		<!-- A-Frame Scene -->
-
-<!-- 		<div class="aframe-scene">
-
-			<a-scene embedded>
-		        
-		        <a-assets>
-		            <a-asset-item id="pouch" src="model/GLTF/pouch.gltf"></a-asset-item>
-		            <img id="sky" src="imgs/background.png">
-		        </a-assets>
-
-		        <a-light 
-			        type="ambient" 
-			        color="#fff" 
-			        intensity="2">
-		        </a-light>
-
-		        <a-entity 
-			        camera 
-			        look-controls 
-			        position="0 1.6 5">
-		        </a-entity>
-
-		        <a-sky src="#sky"></a-sky>
-		      
-		        <a-entity 	
-		        	gltf-model="#pouch" 
-			        position="2.5 1 -1" 
-			        rotation="0 0 0" 
-			        animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
-		        </a-entity>
-
-		    </a-scene>
-
-		</div> -->
-
-		<div class="project-info">
-			<h2> About the Pouch </h2>
-			<p class="copyright">Object property of the Blackfoot People, courtesy of the Blackfoot Digital Library<p>
-	   		 <p class="copyright">Background Credit: <a href="https://www.flickr.com/photos/your_teacher/32325509887/in/pool-equirectangular/" >Lynne Hand</a><p>
-	   		 	<p>Learn more about the pouch on the site...</p>
-	   		 	<p>Created by Christine Clark and Tyler Heaton</p>
-	    </p>
 
 		<script src="js/scripts.js"></script>
 	</body>

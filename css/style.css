@@ -2,53 +2,64 @@
 	box-sizing: border-box;
 }
 
-html, body {
+html {
 	height: 100vh;
 	width: 100vw;
-	margin: 5px;
+}
+
+body {
+	min-height: 100%;
+	min-width: 100%;
 	font-family: sans-serif;
+	background-image: url(../imgs/background.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100%;
+	margin: 0;
 }
 
-.background {
-	display: block;
-	width: 100vw;
-}
-
-/*.aframe-scene, a-scene {
-	width: 100vw;
-	height: 90vh;
-}*/
 
 .info-card {
 	width: 30%;
 	z-index: 50;
 	background: rgba(255, 255, 255, 0.8);
-	/*padding: 30px;*/
-}
-
-.info-card__title {
-	position: fixed top;
-	margin-left: 10vw;
+	padding: 30px;
+	margin-left: auto;
+	margin-right: 30px;
 	margin-top: 30px;
 }
 
-.info-card__date {
-	position: fixed;
-	z-index: 20;
-	margin-left: 10vw;
-	margin-top: 30vh;
-}
 
-/*.info-card__info {
+.graphics {
 	position: absolute;
-	z-index: 50;
-	left: 10vw;
-	top: 10vw;
-}*/
-
-
-
-.project-info {
-	margin-left: 10vw;
-	padding: 40px 0;
+	width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
+
+.graphics .btn {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.graphics #canvas {
+	position: absolute;
+	top: 0;
+    left: 0;
+}
+
+#modal {
+	display: none;
+}
+
+.modal__info {
+	display: none;
+}
+
+.modal__info-active {
+	display: block;
+}
+
+
+
