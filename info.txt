@@ -7,3 +7,9 @@ These yellow glass beads were used to represent the sun.
 These red glass beads were often used as a common decoration.
 
 The fringe was used as a common decoration.
+
+For this project, we were given the opportunity to work with a model of a pouch made by the Blackfoot people. When researching, we found that they was little information on this pouch, so we choose to focus on the materials and design specifically. Creating hotspots to target parts of the model and providing additional information was extremely important to us when creating our user experience. When working with the design of the page, we wanted the transition from the Blackfoot Digital Library website to ours to feel seamless. Therefore, we focused our energy on obtaining assets and similar typography to the Blackfoot Digital Library. We also felt implementing buttons for instructions and simple commands was an effective way to communicate essential information without taking away visual space. While planning, we chose to play to each group members strengths. Brett was in charge of working with three.js/webGL, Sara was in charge of design, and Jason was in charge of research and CSS/HTML tweaks.
+Our main goal was to represent the pouch as the centerpiece and to allow the user to interact with it and understand it's history and design in full.  
+
+Copyright:
+
