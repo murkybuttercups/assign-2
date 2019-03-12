@@ -20,17 +20,20 @@ body {
 
 h1 {
 	font-family: 'Bowlby One SC', cursive;
-	font-size: 35pt;
+	font-size: 60pt;
+	color: #152729;
 }
 
 h3 {
 	font-family: 'Bowlby One SC', cursive;
 	font-size: 18pt;
+	color: #152729;
 }
 
 p {
 	font-family: Helvetica;
 	font-size: 16pt;
+	color: #152729;
 }
 
 .info-card__title {
@@ -47,7 +50,7 @@ p {
 .info-card {
 	width: 30%;
 	z-index: 50;
-	background: rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, 0.4);
 	padding: 30px;
 	margin-left: auto;
 	margin-right: 60px;
@@ -116,13 +119,12 @@ p {
 	display: none;
 }
 
-.modal__info-active {
-	display: block;
+.modal__info-active {  
+	margin-left: 10%;
+	margin-right: 10%;
+	font-family: Helvetica;
+	font-size: 16pt;
+	text-align: center;
+	background-color: rgba(246, 215, 98, 0.7);
 }
-
-
-
-
-
-/*font-family: 'Bowlby One SC', cursive;*/
 
