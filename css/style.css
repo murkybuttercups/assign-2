@@ -44,9 +44,9 @@ body {
 }
 
 .btn {
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.4);
 	border: none;
-	color: darkblue;
+	color: #f6d762;
 	padding: 12px 16px;
 	font-size: 16px;
 	text-align: center;
@@ -59,8 +59,8 @@ body {
 }
 
 .btn:hover {
-	background-color: darkblue;
-	color: white;
+	background-color: white;
+	color: #f6d762;
 } 
 
 .btn-group {
