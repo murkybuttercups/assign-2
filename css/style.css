@@ -18,14 +18,39 @@ body {
 	margin: 0;
 }
 
+h1 {
+	font-family: 'Bowlby One SC', cursive;
+	font-size: 35pt;
+}
+
+h3 {
+	font-family: 'Bowlby One SC', cursive;
+	font-size: 18pt;
+}
+
+p {
+	font-family: Helvetica;
+	font-size: 16pt;
+}
+
+.info-card__title {
+	width: 30%;
+	z-index: 50;
+	/*background: rgba(255, 255, 255, 0.8);*/
+	text-align: center;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: 60px;
+	margin-top: 30px;
+}
 
 .info-card {
 	width: 30%;
 	z-index: 50;
-	background: rgba(255, 255, 255, 0.8);
+	background: rgba(255, 255, 255, 0.5);
 	padding: 30px;
 	margin-left: auto;
-	margin-right: 30px;
+	margin-right: 60px;
 	margin-top: 30px;
 }
 
