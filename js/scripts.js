@@ -1,12 +1,9 @@
 window.onload = init;
 
 function init() {
-	// TOOD change window inner height and window inner width to the canvas heights.
-	// TODO javascript for checking width of the window and set the canvas to that.
-	// TODO add word background to model
 
 	// replace info with real id.
-	var infos = document.getElementById("modal")
+	var modal = document.getElementById("modal")
 
 	var canvas = document.getElementById("canvas");
 	var graphicsContainer = canvas.parentElement;
@@ -42,7 +39,7 @@ function init() {
 	// Load a glTF resource
 	loader.load(
 		// resource URL
-		'model/GLTF/pouch.gltf',
+		'model/pouch.gltf',
 		// called when the resource is loaded
 		function (gltf) {
 			// Grab the mesh out of the scene for additional rotations
@@ -107,26 +104,26 @@ function init() {
 		// Now check what is selected
 		if (selectedArea != null)
 		{
-			infos.classList = "modal modal-active";
+			modal.classList = "modal modal-active";
 			// This is where the modal window will be expanded upon clicking on a hot area.
-			for (var i = 0; i < infos.children.length; i++)
+			for (var i = 0; i < modal.children.length; i++)
 			{
-				if (infos.children[i].id == selectedArea)
+				if (modal.children[i].id == selectedArea)
 				{
-					infos.children[i].classList = "modal__info modal__info-active";
+					modal.children[i].classList = "modal__info modal__info-active";
 				}
 				else
 				{
-					infos.children[i].classList = "modal__info";
+					modal.children[i].classList = "modal__info";
 				}
 			}
 		}
 		else
 		{
-			infos.classList = "modal";
-			for (var i = 0; i < infos.children.length; i++)
+			modal.classList = "modal";
+			for (var i = 0; i < modal.children.length; i++)
 			{
-				infos.children[i].classList = "modal__info";
+				modal.children[i].classList = "modal__info";
 			}
 			
 			// Nothing on the pouch was selected
@@ -209,11 +206,6 @@ function init() {
 				}
 			}
 		}
-
-		// TODO add rotational controls
-
-		// scene.rotation.y = -0.5;
-		// scene.rotation.y += 0.01;
 
 		renderer.render(scene, camera);
 		requestAnimationFrame(Render);

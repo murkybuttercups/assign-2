@@ -109,6 +109,7 @@ p {
     top: 65px;
 	left: 40px;
 	z-index: 101;
+	font-family: Helvetica;
 }
 
 .graphics__info {
