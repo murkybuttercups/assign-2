@@ -1,13 +1,14 @@
 # The Pouch
 This artifact was purchased from John Douglas Sutherland Campbell, 9th Duke of Argyll in 1887. At the time of acquisition, this pouch was not initially registered, and was thought to be found in either Montana or Alberta. The pouch was crafted by the Blackfoot nation, and used skin (hide), porcupine quill, metal, and glass. This type of simply designed pouch was used as an everyday item for utilitarian purposes. Oftentimes the complexity or type of decorations used on pouches were used a symbol by Blackfoot men of how well they were taken care of by their wives.
 
+## Beads ##
 The **blue glass beads** were used to represent the sky or water. This type of design was often used for someone who had a connection with water.
 
 The **yellow glass beads** were used to represent the sun.
 
 The **red glass beads** were often used as a common decoration.
 
-# The Fringe
+## Fringe ##
 **The fringe**, placed on the side, was commonly used as a decoration for the pouch.
 
 # Project Details #
