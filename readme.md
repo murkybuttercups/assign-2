@@ -16,3 +16,6 @@ Our main goal was to represent the pouch as the centerpiece and to allow the use
 
 # Copyright # 
 Object property of the Blackfoot People, courtesy of the Blackfoot Digital Library. Background Credit: Images from Google and designed by Sara Sefel. Created by Jason Ranaghan, Brett Regnier, and Sara Sefel. &copy;2019
+
+# Addional Resources #
+More information the Pouch can be found [here](https://www.blackfootdigitallibrary.com/digital/collection/bdl/id/2109/rec/1)
