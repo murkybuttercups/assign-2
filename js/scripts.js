@@ -113,7 +113,7 @@ function init() {
 			{
 				if (infos.children[i].id == selectedArea)
 				{
-					infos.children[i].classList = infos.children[i].classList + " modal__info-active";
+					infos.children[i].classList = "modal__info modal__info-active";
 				}
 				else
 				{
