@@ -82,8 +82,8 @@ function init() {
 		
 		if (clicked)
 		{
-			scene.rotation.y += (mouse.x - prevMouseX)*2; 
-			scene.rotation.x += (prevMouseY - mouse.y)*2; 
+			scene.rotation.y += (mouse.x - prevMouseX)*3; 
+			scene.rotation.x += (prevMouseY - mouse.y)*3; 
 		}
 	}
 
