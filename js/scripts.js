@@ -30,10 +30,13 @@ function init() {
 	var gltfscene = null;
 	var pouch = null;
 	var selectedArea = null;
-
+	var clicked = false;
+	
 	// Set to something the mouse pos should never reach so make sure there are no auto selected raycasts.
-	mouse.x = 1000000;
-	mouse.y = 1000000;
+	mouse.x = 0;
+	mouse.y = 0;
+	var prevMouseX = 0;
+	var prevMouseY = 0;
 
 	var loader = new THREE.GLTFLoader();
 	// Load a glTF resource
@@ -71,16 +74,28 @@ function init() {
 	);
 
 	function onMouseMove(event) {
+		prevMouseX = mouse.x;
+		prevMouseY = mouse.y;
+		
 		mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
 		mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+		
+		if (clicked)
+		{
+			scene.rotation.y += (mouse.x - prevMouseX)*2; 
+			scene.rotation.x += (prevMouseY - mouse.y)*2; 
+		}
 	}
 
 	function onMouseDown(event) {
-		for (var i = 0; i < scene.children.length; i++) {
+		for (var i = 0; i < scene.children.length; i++)
+		{
 			var c = scene.children[i];
-			if (c.name == "hitbox") {
+			if (c.name == "hitbox")
+			{
 				c.selected = false;
-				if (c.hovering == true) {
+				if (c.hovering == true)
+				{
 					c.selected = true;
 					c.hovering = false;
 					selectedArea = c.area;
@@ -90,26 +105,39 @@ function init() {
 
 
 		// Now check what is selected
-		if (selectedArea != null) {
-			infos.classList = "modal-active";
+		if (selectedArea != null)
+		{
+			infos.classList = "modal modal-active";
 			// This is where the modal window will be expanded upon clicking on a hot area.
-			for (var i = 0; i < infos.children.length; i++) {
-				if (infos.children[i].id == selectedArea) {
+			for (var i = 0; i < infos.children.length; i++)
+			{
+				if (infos.children[i].id == selectedArea)
+				{
 					infos.children[i].classList = infos.children[i].classList + " modal__info-active";
 				}
-				else {
+				else
+				{
 					infos.children[i].classList = "modal__info";
 				}
 			}
 		}
-		else {
-			infos.classList = "";
-			for (var i = 0; i < infos.children.length; i++) {
+		else
+		{
+			infos.classList = "modal";
+			for (var i = 0; i < infos.children.length; i++)
+			{
 				infos.children[i].classList = "modal__info";
 			}
+			
+			// Nothing on the pouch was selected
+			clicked = true;
 		}
 
 		selectedArea = null;
+	}
+	
+	function onMouseUp(event) {
+		clicked = false;
 	}
 
 	// Create the hit boxes for the hot spots on the pouch, can add stipe hitboxes for the back as well if needed
@@ -150,10 +178,12 @@ function init() {
 		// console.log(mouse.x);
 		// console.log(mouse.y);
 
-		for (var i = 0; i < scene.children.length; i++) {
+		for (var i = 0; i < scene.children.length; i++)
+		{
 			var c = scene.children[i];
 			c.hovering = false;
-			if (c.name == "hitbox" && c.selected == false) {
+			if (c.name == "hitbox" && c.selected == false)
+			{
 				c.material.opacity = 0.0;
 			}
 		}
@@ -161,16 +191,19 @@ function init() {
 		// Finds the first intersected hitbox in the scene from the mouse normal.
 		raycaster.setFromCamera(mouse, camera);
 		var intersects = raycaster.intersectObjects(scene.children);
-		if (intersects.length > 0) {
+		if (intersects.length > 0)
+		{
 			var op = 0.15;
 			var interObj = intersects[0].object;
 			interObj.material.opacity = op;
 			interObj.hovering = true;
 
 
-			for (var i = 0; i < scene.children.length; i++) {
+			for (var i = 0; i < scene.children.length; i++)
+			{
 				var c = scene.children[i];
-				if (c.area == interObj.area) {
+				if (c.area == interObj.area)
+				{
 					c.hovering = true;
 					c.material.opacity = op;
 				}
@@ -189,4 +222,45 @@ function init() {
 
 	window.addEventListener('mousemove', onMouseMove, false);
 	window.addEventListener('mousedown', onMouseDown, false);
+	window.addEventListener('mouseup', onMouseUp, false);
+
+	// Okay rendering is done, do the buttons
+	var gmodal = document.getElementById("graphics__modal");
+	function btnInfo() {
+		Reveal("graphics__info");
+	}
+
+	function btnMove() {
+		Reveal("graphics__move");
+	}
+
+	function btnHome() {
+		scene.rotation.x = 0;
+		scene.rotation.y = 0;
+		scene.rotation.z = 0;		
+	}
+
+	function btnCopyright() {
+		Reveal("graphics__copyright");
+	}
+
+	function Reveal(box) {
+		for (var i = 0; i < gmodal.children.length; i++)
+		{
+			gmodal.children[i].classList = "graphics__info";
+			if (gmodal.children[i].id == box)
+			{
+				gmodal.children[i].classList += " graphics__info-active";
+			}
+		}
+	}
+
+	var closebuttons = document.getElementsByClassName("graphics__close");
+	for (var i = 0; i < closebuttons.length; i++)
+		closebuttons[i].addEventListener("click", Reveal, false);
+		
+	document.getElementById("btn-info").addEventListener("click", btnInfo, false);
+	document.getElementById("btn-move").addEventListener("click", btnMove, false);
+	document.getElementById("btn-home").addEventListener("click", btnHome, false);
+	document.getElementById("btn-copyright").addEventListener("click", btnCopyright, false);
 }

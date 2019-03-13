@@ -1,30 +1,63 @@
 <!doctype html>
 <html>
-	<head>
-        <title>A-Frame</title>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-		<link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
-  	</head>
-	<body>
 
+<head>
+	<title>A-Frame</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
+</head>
 
-		<div class="graphics">	
-			<div class="btn-group">
-			<button class="btn btn-info" onclick="alert('Hotspots located on the pouch, by clicking on different parts of the pouch you get pop up windows with more information regarding the different sections.')"><i class="fa fa-info"></i></button>
-			<button class="btn btn-move"  onclick="alert('Rotate and inspect the pouch more closely by using scrolling with mouse and grabbing and moving the pouch ')"><i class="fa fa-eye"></i></button>
-			<button class="btn btn-copyright"  onclick="alert('Object property of the Blackfoot People, courtesy of the Blackfoot Digital Library. Background Credit: Images from Google and designed by Sara Sefel. Created by Jason Ranaghan, Brett Regnier, and Sara Sefel. &copy; 2019')"><i class="fa fa-copyright"></i></button>
-			<button class="btn btn-home"  onclick="alert('Reset the pouch to its original state')"><i class="fa fa-home"></i></button>
+<body>
+	<div class="graphics">
+		<div class="btn-group">
+			<button id="btn-info" class="btn btn-info">
+				<i class="fa fa-info"></i>
+			</button>
+			<button id="btn-move" class="btn btn-move">
+				<i class="fa fa-eye"></i>
+			</button>
+			<button id="btn-home" class="btn btn-home">
+				<i class="fa fa-home"></i>
+			</button>
+			<button id="btn-copyright" class="btn btn-copyright">
+				<i class="fa fa-copyright"></i>
+			</button>
 		</div>
 
-			<!-- <canvas id="canvas"></canvas> -->
+		<div id="graphics__modal" class="graphics__modal">
+			<div id="graphics__info" class="graphics__info graphics__iparts-active">
+				<i class="graphics__close">x</i>
+				<p>
+					Hotspots located on the pouch, by clicking on different parts of the pouch you get pop up windows
+					with more information regarding the different sections.
+				</p>
+			</div>
+			<div id="graphics__move" class="graphics__info">
+				<i class="graphics__close">x</i>
+				<p>
+					Rotate and inspect the pouch more closely by using scrolling with mouse and grabbing and moving the
+					pouch
+				</p>
+			</div>
+			<div id="graphics__copyright" class="graphics__info">
+				<i class="graphics__close">x</i>
+				<p>
+					Object property of the Blackfoot People, courtesy of the Blackfoot Digital Library. Background
+					Credit: Images from Google and designed by Sara Sefel. Created by Jason Ranaghan, Brett Regnier, and
+					Sara Sefel. &copy;2019
+				</p>
+			</div>
 		</div>
 
+		<canvas id="canvas" class="graphics__canvas"></canvas>
+	</div>
 
-		<!-- OBJECT INFO -->
 
+	<!-- OBJECT INFO -->
+	<div class="container">
 		<div class="info-card__title">
 			<h1>Pouch</h1>
 		</div>
@@ -34,22 +67,37 @@
 				Size: 20 x 26 x 3.5</h3>
 		</div>
 		<div class="info-card">
-			<p>This artifact was purchased from John Douglas Sutherland Campbell, 9th Duke of Argyll in 1887. At the time of acquisition, this pouch was not initially registered, and was thought to be found in either Montana or Alberta. The pouch was crafted by the Blackfoot nation, and used skin (hide), porcupine quill, metal, and glass. This type of simply designed pouch was used as an everyday item for utilitarian purposes. Oftentimes the complexity or type of decorations used on pouches were used a symbol by Blackfoot men of how well they were taken care of by their wives.</p>
+			<p>This artifact was purchased from John Douglas Sutherland Campbell, 9th Duke of Argyll in 1887. At the
+				time of
+				acquisition, this pouch was not initially registered, and was thought to be found in either Montana or
+				Alberta. The pouch was crafted by the Blackfoot nation, and used skin (hide), porcupine quill, metal,
+				and
+				glass. This type of simply designed pouch was used as an everyday item for utilitarian purposes.
+				Oftentimes
+				the complexity or type of decorations used on pouches were used a symbol by Blackfoot men of how well
+				they
+				were taken care of by their wives.</p>
 		</div>
-		
 
-
-
-<!-- For Pop up windows? -->
+		<!-- For Pop up windows? -->
 		<section id="modal" class="modal">
 			<div id="front" class="modal__info">
-			<p class="front-text">These red glass beads were often used as a common decoration.</p></div>
+				<p class="front-text">These red glass beads were often used as a common decoration.</p>
 			</div>
 			<div id="back" class="modal__info">
-			<p class="back-text">These blue glass beads were used to represent the sky or water. This type of design was often used for someone who had a connection with water.The yellow glass beads were used to represent the sun.</p></div>
+				<p class="back-text">These blue glass beads were used to represent the sky or water. This type of design
+					was
+					often used for someone who had a connection with water.The yellow glass beads were used to represent
+					the
+					sun.</p>
+			</div>
 			<div id="frills" class="modal__info">
-			<p class="frills-text">The fringe was used as a common decoration.</p></div>
+				<p class="frills-text">The fringe was used as a common decoration.</p>
+			</div>
 		</section>
-		<script src="js/scripts.js"></script>
-	</body>
+
+	</div>
+	<script src="js/scripts.js"></script>
+</body>
+
 </html>
